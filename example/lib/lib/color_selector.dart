@@ -12,7 +12,7 @@ class ColorSelector extends StatelessWidget {
   final double width;
 
   const ColorSelector(
-      {this.height = 40, this.width = 40, this.color, this.onColorChanged});
+      {this.height = 40, this.width = 40,  required this.color, required this.onColorChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,9 @@ class ColorSelector extends StatelessWidget {
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              InkWell(
                 child: const Text('Close'),
-                onPressed: () {
+                onTap: () {
                   Navigator.of(context).pop();
                 },
               ),

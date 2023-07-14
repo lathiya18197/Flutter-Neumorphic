@@ -6,7 +6,7 @@ import 'back_button.dart';
 
 class TopBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final List<Widget> actions;
+  final List<Widget>? actions;
 
   static const double kToolbarHeight = 110.0;
 
@@ -26,9 +26,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w800,
-                color: NeumorphicTheme.isUsingDark(context)
-                    ? Colors.white70
-                    : Colors.black87,
+                color: NeumorphicTheme.isUsingDark(context) ? Colors.white70 : Colors.black87,
               ),
             ),
           ),

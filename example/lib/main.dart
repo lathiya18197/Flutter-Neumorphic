@@ -1,7 +1,5 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-import 'main_home.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -28,7 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,16 +55,10 @@ class MyHomePage extends StatelessWidget {
             ),
             NeumorphicButton(
                 margin: EdgeInsets.only(top: 12),
-                onPressed: () {
-                  NeumorphicTheme.of(context).themeMode =
-                      NeumorphicTheme.isUsingDark(context)
-                          ? ThemeMode.light
-                          : ThemeMode.dark;
-                },
+                onPressed: () {},
                 style: NeumorphicStyle(
                   shape: NeumorphicShape.flat,
-                  boxShape:
-                      NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
+                  boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
                 ),
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
@@ -75,21 +67,15 @@ class MyHomePage extends StatelessWidget {
                 )),
             NeumorphicButton(
                 margin: EdgeInsets.only(top: 12),
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushReplacement(MaterialPageRoute(builder: (context) {
-                    return FullSampleHomePage();
-                  }));
-                },
+                onPressed: () {},
                 style: NeumorphicStyle(
                   shape: NeumorphicShape.flat,
-                  boxShape:
-                      NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
+                  boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(8)),
                   //border: NeumorphicBorder()
                 ),
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  "Go to full sample",
+                  "Demo",
                   style: TextStyle(color: _textColor(context)),
                 )),
           ],
@@ -98,10 +84,10 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Color _iconsColor(BuildContext context) {
+  Color? _iconsColor(BuildContext context) {
     final theme = NeumorphicTheme.of(context);
-    if (theme.isUsingDark) {
-      return theme.current.accentColor;
+    if (theme?.isUsingDark ?? false) {
+      return theme?.current?.accentColor ?? Colors.red;
     } else {
       return null;
     }
